@@ -118,51 +118,51 @@ const Features = () => {
       ]
     },
     performance: {
-      name: 'Performance',
+      name: 'Project Performance',
       icon: <Zap className="w-5 h-5" />,
       color: 'warning',
       features: [
         {
           icon: <Timer className="w-6 h-6" />,
-          title: "Function Profiler",
-          description: "See execution time for every function. Identify bottlenecks with flame graphs and timeline views.",
-          demo: "func(): 150ms (slow!)",
+          title: "Multi-File Performance Profiling",
+          description: "Profile execution time across your entire project. See which modules and functions consume most time.",
+          demo: "api/: 150ms, services/: 80ms, db/: 200ms",
           badge: "Pro"
         },
         {
           icon: <Cpu className="w-6 h-6" />,
-          title: "Memory Profiler",
-          description: "Track memory allocation and detect leaks. See heap snapshots and memory usage over time.",
-          demo: "Memory: 45MB → 120MB ⚠️",
-          badge: "Pro"
-        },
-        {
-          icon: <TrendingUp className="w-6 h-6" />,
-          title: "Complexity Analysis",
-          description: "Calculate Big O complexity automatically. Get warnings for O(n²) operations in loops.",
-          demo: "Detected: O(n²) → Optimize",
-          badge: "AI"
-        },
-        {
-          icon: <BarChart3 className="w-6 h-6" />,
-          title: "Performance Comparison",
-          description: "Compare execution times across runs. Track performance improvements over commits.",
-          demo: "Run 1: 200ms | Run 2: 150ms ✓",
-          badge: "Pro"
-        },
-        {
-          icon: <Activity className="w-6 h-6" />,
-          title: "I/O Monitoring",
-          description: "Track file operations, network calls, and database queries. See what's slowing down your code.",
-          demo: "File read: 50ms | DB: 200ms",
+          title: "Project-Wide Memory Tracking",
+          description: "Track memory usage across all modules. Identify which files cause memory leaks in your application.",
+          demo: "models.py leaking in loop: +50MB",
           badge: "Pro"
         },
         {
           icon: <Network className="w-6 h-6" />,
-          title: "Async Flow Tracker",
-          description: "Visualize async/await operations. Never lose track of promises and coroutines.",
-          demo: "await → pending → resolved",
-          badge: "Core"
+          title: "Import Performance Analysis",
+          description: "Measure import times for every module. Identify slow imports that delay application startup.",
+          demo: "pandas: 800ms ⚠️ Lazy load?",
+          badge: "Pro"
+        },
+        {
+          icon: <BarChart3 className="w-6 h-6" />,
+          title: "Cross-Module Bottleneck Detection",
+          description: "AI identifies performance bottlenecks that span multiple files. Suggests architectural optimizations.",
+          demo: "3 files calling DB.query() → Cache",
+          badge: "AI"
+        },
+        {
+          icon: <Activity className="w-6 h-6" />,
+          title: "Full Stack I/O Monitoring",
+          description: "Track all I/O operations across files: API calls, DB queries, file reads. See the complete picture.",
+          demo: "routes.py → db.py: 15 queries!",
+          badge: "Pro"
+        },
+        {
+          icon: <TrendingUp className="w-6 h-6" />,
+          title: "Package-Level Performance Metrics",
+          description: "Compare performance by package/module. Track improvements after refactoring multi-file changes.",
+          demo: "api/ pkg: 200ms → 120ms ✓",
+          badge: "Pro"
         }
       ]
     },
