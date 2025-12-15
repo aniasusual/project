@@ -46,25 +46,30 @@ const TechStack = () => {
           </p>
         </motion.div>
 
-        {/* Languages Grid */}
+        {/* Python Versions Grid */}
         <div className="mb-16">
-          <h3 className="text-2xl font-bold mb-8 text-center">Programming Languages</h3>
+          <h3 className="text-2xl font-bold mb-8 text-center">Python Versions</h3>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4">
-            {languages.map((lang, index) => (
+            {pythonVersions.map((version, index) => (
               <motion.div
-                key={lang.name}
+                key={version.name}
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={inView ? { opacity: 1, scale: 1 } : {}}
                 transition={{ delay: index * 0.05 }}
                 whileHover={{ scale: 1.05 }}
                 className="glass rounded-xl p-6 border border-border hover:border-primary/50 transition-all cursor-pointer"
               >
-                <div className="text-4xl mb-3 text-center">{lang.logo}</div>
+                <div className="text-4xl mb-3 text-center">{version.logo}</div>
                 <div className="text-center">
-                  <div className="font-semibold mb-1">{lang.name}</div>
-                  <Badge className="bg-success/10 text-success border-success/20 text-xs">
-                    {lang.support}
-                  </Badge>
+                  <div className="font-semibold mb-1">{version.name}</div>
+                  <div className="flex flex-col gap-1">
+                    <Badge className="bg-success/10 text-success border-success/20 text-xs">
+                      {version.support}
+                    </Badge>
+                    <Badge className="bg-primary/10 text-primary border-primary/20 text-xs">
+                      {version.badge}
+                    </Badge>
+                  </div>
                 </div>
               </motion.div>
             ))}
