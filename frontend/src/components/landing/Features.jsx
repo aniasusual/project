@@ -167,50 +167,50 @@ const Features = () => {
       ]
     },
     collaboration: {
-      name: 'Collaboration',
+      name: 'Team Collaboration',
       icon: <GitCompare className="w-5 h-5" />,
       color: 'success',
       features: [
         {
           icon: <Film className="w-6 h-6" />,
-          title: "Session Recording",
-          description: "Record your entire debug session. Share with teammates or replay later for learning.",
-          demo: "🔴 Recording → Share link",
+          title: "Multi-File Session Recording",
+          description: "Record debug sessions spanning multiple files. Share entire execution flow with teammates showing all modules.",
+          demo: "🔴 Record 8 files → Share project flow",
           badge: "Pro"
         },
         {
           icon: <GitCompare className="w-6 h-6" />,
-          title: "Live Co-Debugging",
-          description: "Debug together in real-time. See teammate's cursor, breakpoints, and variables.",
-          demo: "2 users → shared session",
+          title: "Collaborative Project Debugging",
+          description: "Debug multi-file projects together in real-time. See teammates navigate across your codebase.",
+          demo: "2 users debugging 10 files → synced",
           badge: "Team"
         },
         {
           icon: <Video className="w-6 h-6" />,
-          title: "Instant Bug Reports",
-          description: "Generate detailed bug reports with context. One click to create GitHub/Jira issues.",
-          demo: "Bug → Report → Created ✓",
+          title: "Cross-File Bug Reports",
+          description: "Generate bug reports with full context from all affected files. Includes call stacks and file dependencies.",
+          demo: "Bug in 3 files → Complete report ✓",
           badge: "Pro"
         },
         {
           icon: <GitBranch className="w-6 h-6" />,
-          title: "Git Blame Integration",
-          description: "See who wrote each line while debugging. Jump to commit history from breakpoints.",
-          demo: "Line 42 → @user (2d ago)",
+          title: "Project-Wide Git Blame",
+          description: "See commit history across all files in call stack. Track who changed what in related modules.",
+          demo: "routes.py:10 → @alice, models.py:45 → @bob",
           badge: "Pro"
         },
         {
           icon: <MessageSquare className="w-6 h-6" />,
-          title: "Code Annotations",
-          description: "Leave notes during debugging. Share insights with team members inline.",
-          demo: "💭 'Check this logic'",
+          title: "Cross-File Annotations",
+          description: "Leave notes that link across files. Document how changes in one file affect others.",
+          demo: "💬 routes.py note → links to services.py",
           badge: "Team"
         },
         {
-          icon: <Database className="w-6 h-6" />,
-          title: "Debug Templates",
-          description: "Save and share debug configurations. Reuse common setups across team.",
-          demo: "Template → Apply → Debug",
+          icon: <Workflow className="w-6 h-6" />,
+          title: "Project Debug Configurations",
+          description: "Save debug setups for multi-file projects. Share configurations that set breakpoints across modules.",
+          demo: "Config: 5 files, 8 breakpoints → Load",
           badge: "Team"
         }
       ]
