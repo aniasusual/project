@@ -22,6 +22,8 @@ const InteractiveDemo = () => {
   const [callStack, setCallStack] = useState([]);
   const [variables, setVariables] = useState([]);
   const [aiInsight, setAiInsight] = useState('');
+  const [nodes, setNodes, onNodesChange] = useNodesState([]);
+  const [edges, setEdges, onEdgesChange] = useEdgesState([]);
 
   // Multi-file project structure
   const projectFiles = {
