@@ -69,50 +69,50 @@ const Features = () => {
       ]
     },
     ai: {
-      name: 'AI-Powered',
+      name: 'AI-Powered Analysis',
       icon: <Brain className="w-5 h-5" />,
       color: 'accent',
       features: [
         {
           icon: <Brain className="w-6 h-6" />,
-          title: "AI Bug Detective",
-          description: "GPT-5.1 analyzes your code and identifies bugs before they happen. Get explanations in plain English.",
-          demo: "Code → AI Analysis → Insights",
+          title: "Whole-Project Bug Detective",
+          description: "GPT-5.1 analyzes your entire codebase. Identifies bugs that span multiple files and traces root causes across modules.",
+          demo: "Scan 50 files → Find type mismatch",
           badge: "AI"
         },
         {
           icon: <Wand2 className="w-6 h-6" />,
-          title: "One-Click Auto-Fix",
-          description: "AI suggests fixes and applies them instantly. Review before accepting. Learns from your preferences.",
-          demo: "Bug → AI Fix → Apply ✓",
+          title: "Multi-File Auto-Fix",
+          description: "AI suggests fixes across multiple files simultaneously. Refactors imports, updates function signatures project-wide.",
+          demo: "Fix in routes.py affects 3 files ✓",
           badge: "AI"
         },
         {
-          icon: <MessageSquare className="w-6 h-6" />,
-          title: "Code Explanations",
-          description: "Ask AI to explain any code block. Get instant documentation for complex logic you're debugging.",
-          demo: "'What does this do?' → Answer",
+          icon: <Network className="w-6 h-6" />,
+          title: "Dependency Impact Analysis",
+          description: "AI predicts how changes ripple through your project. Shows which files will be affected before you make changes.",
+          demo: "Change models.py → 12 files affected",
           badge: "AI"
         },
         {
           icon: <Lightbulb className="w-6 h-6" />,
-          title: "Smart Suggestions",
-          description: "AI suggests better patterns and optimizations. Learn best practices while debugging.",
-          demo: "Pattern detected → Suggestion",
+          title: "Architecture Suggestions",
+          description: "AI analyzes your project structure and suggests refactoring. Detects god classes, tight coupling across files.",
+          demo: "Split utils.py → 4 focused modules",
           badge: "AI"
         },
         {
           icon: <FileSearch className="w-6 h-6" />,
-          title: "Bug Pattern Recognition",
-          description: "AI learns from millions of bugs. Recognizes common patterns and warns you before errors occur.",
-          demo: "Pattern match → Warning",
+          title: "Cross-File Pattern Detection",
+          description: "AI finds repeated patterns across your codebase. Suggests extracting common logic into shared modules.",
+          demo: "Same logic in 5 files → Extract",
           badge: "AI"
         },
         {
-          icon: <Mic className="w-6 h-6" />,
-          title: "Voice Commands",
-          description: "Debug hands-free with voice commands. 'Set breakpoint', 'Show variables', 'Step through'.",
-          demo: "🎤 'Show value' → Display",
+          icon: <MessageSquare className="w-6 h-6" />,
+          title: "Project-Wide Context Awareness",
+          description: "Ask AI about any function and it understands the full context from all files. Explains dependencies and usage.",
+          demo: "'Where is this used?' → 8 locations",
           badge: "AI"
         }
       ]
