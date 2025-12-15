@@ -216,50 +216,50 @@ const Features = () => {
       ]
     },
     advanced: {
-      name: 'Advanced',
+      name: 'Enterprise & Advanced',
       icon: <Shield className="w-5 h-5" />,
       color: 'destructive',
       features: [
         {
           icon: <Shield className="w-6 h-6" />,
-          title: "Security Scanner",
-          description: "Detect SQL injection, XSS, and other vulnerabilities while debugging. Get instant security alerts.",
-          demo: "SQL risk detected → Alert",
+          title: "Project-Wide Security Scanning",
+          description: "Scan entire codebase for vulnerabilities. Trace SQL injection risks through multiple files from routes to database.",
+          demo: "routes.py → db.py: SQL injection path",
           badge: "Pro"
         },
         {
           icon: <Clock className="w-6 h-6" />,
-          title: "Hot Reload Debugging",
-          description: "Change code during debug session. See results instantly without restarting.",
-          demo: "Edit → Hot reload → Continue",
+          title: "Multi-File Hot Reload",
+          description: "Edit multiple files during debug session. All changes hot-reload without losing debug state.",
+          demo: "Edit 3 files → All reload → Continue",
           badge: "Pro"
         },
         {
           icon: <Network className="w-6 h-6" />,
-          title: "Remote Debugging",
-          description: "Debug code running on remote servers. Connect to Docker containers, VMs, or cloud.",
-          demo: "Local → Remote server",
+          title: "Distributed System Debugging",
+          description: "Debug microservices spanning multiple repositories. Trace requests across services and files.",
+          demo: "Service A/routes.py → Service B/api.py",
           badge: "Pro"
         },
         {
-          icon: <Workflow className="w-6 h-6" />,
-          title: "Conditional Logging",
-          description: "Add logs that only appear during specific conditions. No code changes needed.",
-          demo: "if x > 10: log 'High value'",
+          icon: <Boxes className="w-6 h-6" />,
+          title: "Package Dependency Debugging",
+          description: "Debug into third-party packages. Step through site-packages and understand external library behavior.",
+          demo: "Your code → requests/ → urllib3/",
           badge: "Pro"
         },
         {
           icon: <Bug className="w-6 h-6" />,
-          title: "Exception Predictor",
-          description: "AI predicts where exceptions might occur. Get warnings before your code crashes.",
-          demo: "Line 45: Might raise ValueError",
+          title: "Cross-File Exception Prediction",
+          description: "AI predicts exceptions that could occur across file boundaries. Warns about type mismatches between modules.",
+          demo: "routes.py sends str → models.py expects int",
           badge: "AI"
         },
         {
-          icon: <Play className="w-6 h-6" />,
-          title: "Debug Playgrounds",
-          description: "Create isolated test environments. Experiment with fixes before applying to main code.",
-          demo: "Fork → Test → Merge",
+          icon: <Layers className="w-6 h-6" />,
+          title: "Monorepo Multi-Project Debugging",
+          description: "Debug across multiple Python projects in a monorepo. Trace execution through shared packages.",
+          demo: "app1/ → shared/ → app2/",
           badge: "Pro"
         }
       ]
