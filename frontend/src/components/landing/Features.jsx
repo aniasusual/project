@@ -406,47 +406,25 @@ const Features = () => {
                       {feature.title}
                     </h3>
 
-                    {/* Description with better line height */}
-                    <p className="text-sm text-muted-foreground leading-relaxed mb-6 min-h-[4rem]">
+                    {/* Description */}
+                    <p className="text-sm text-muted-foreground leading-relaxed mb-4">
                       {feature.description}
                     </p>
 
-                    {/* Demo Preview - Always visible but highlighted on hover */}
-                    <motion.div
-                      animate={{
-                        scale: hoveredFeature === feature.title ? 1.02 : 1,
-                        y: hoveredFeature === feature.title ? -2 : 0
-                      }}
-                      className="relative"
-                    >
-                      <div className={`p-4 rounded-xl border transition-all duration-300 ${
-                        hoveredFeature === feature.title 
-                          ? 'bg-primary/10 border-primary/30 shadow-lg shadow-primary/10' 
-                          : 'bg-muted/30 border-border'
-                      }`}>
-                        <div className="flex items-center gap-2 mb-2">
-                          <Play className="w-3 h-3 text-primary" />
-                          <span className="text-xs font-semibold text-primary">Try it:</span>
-                        </div>
-                        <code className="text-xs font-mono text-foreground block overflow-x-auto">
-                          {feature.demo}
-                        </code>
+                    {/* Demo Preview - Always Visible */}
+                    <div className={`p-3 rounded-lg border transition-all duration-300 ${
+                      hoveredFeature === feature.title 
+                        ? 'bg-primary/5 border-primary/40' 
+                        : 'bg-muted/40 border-border'
+                    }`}>
+                      <div className="flex items-center gap-2 mb-2">
+                        <Play className="w-3 h-3 text-primary" />
+                        <span className="text-xs font-semibold text-foreground">Example:</span>
                       </div>
-                    </motion.div>
-
-                    {/* Read More Indicator */}
-                    <motion.div
-                      className="flex items-center gap-2 mt-4 text-xs font-semibold text-primary"
-                      initial={{ opacity: 0 }}
-                      animate={{ 
-                        opacity: hoveredFeature === feature.title ? 1 : 0,
-                        x: hoveredFeature === feature.title ? 0 : -10
-                      }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      <span>Explore this feature</span>
-                      <ArrowRight className="w-4 h-4 animate-pulse" />
-                    </motion.div>
+                      <code className="text-xs font-mono text-foreground block">
+                        {feature.demo}
+                      </code>
+                    </div>
                   </CardContent>
 
                   {/* Card number indicator */}
