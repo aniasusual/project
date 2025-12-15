@@ -457,7 +457,7 @@ const Features = () => {
               </div>
               <div className="h-12 w-px bg-border" />
               <div className="text-center">
-                <div className="text-4xl font-bold text-success mb-2">< 1ms</div>
+                <div className="text-4xl font-bold text-success mb-2">&lt;1ms</div>
                 <div className="text-sm text-muted-foreground">Response</div>
               </div>
               <div className="h-12 w-px bg-border" />
