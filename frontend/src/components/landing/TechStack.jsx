@@ -118,30 +118,22 @@ const TechStack = () => {
           transition={{ delay: 1 }}
           className="mt-20 text-center"
         >
-          <div className="glass rounded-2xl p-8 border border-primary/30 inline-block">
-            <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12">
+          <div className="glass rounded-2xl p-10 border border-primary/30 inline-block">
+            <div className="flex flex-wrap items-center justify-center gap-12 md:gap-16">
               <div className="text-center">
                 <div className="flex items-center justify-center gap-2 mb-2">
-                  <Package className="w-6 h-6 text-primary" />
-                  <div className="text-4xl font-bold text-primary">50+</div>
+                  <Code2 className="w-8 h-8 text-primary" />
+                  <div className="text-5xl font-bold text-primary">Python</div>
                 </div>
-                <div className="text-sm text-muted-foreground">Frameworks Supported</div>
+                <div className="text-base text-muted-foreground">Fully Supported</div>
               </div>
-              <div className="h-12 w-px bg-border" />
+              <div className="h-16 w-px bg-border" />
               <div className="text-center">
                 <div className="flex items-center justify-center gap-2 mb-2">
-                  <Code2 className="w-6 h-6 text-accent" />
-                  <div className="text-4xl font-bold text-accent">Python</div>
+                  <Sparkles className="w-8 h-8 text-warning" />
+                  <div className="text-5xl font-bold text-warning">4+</div>
                 </div>
-                <div className="text-sm text-muted-foreground">All Versions</div>
-              </div>
-              <div className="h-12 w-px bg-border" />
-              <div className="text-center">
-                <div className="flex items-center justify-center gap-2 mb-2">
-                  <Sparkles className="w-6 h-6 text-warning" />
-                  <div className="text-4xl font-bold text-warning">More</div>
-                </div>
-                <div className="text-sm text-muted-foreground">Languages Coming</div>
+                <div className="text-base text-muted-foreground">Languages Coming</div>
               </div>
             </div>
           </div>
