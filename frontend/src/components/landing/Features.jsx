@@ -420,20 +420,12 @@ const Features = () => {
                       </motion.div>
                     </div>
 
-                    {/* Title with gradient on hover */}
-                    <motion.h3 
-                      className="text-xl font-bold mb-3 transition-all duration-300"
-                      animate={{
-                        backgroundImage: hoveredFeature === feature.title 
-                          ? 'linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)))'
-                          : 'none',
-                        WebkitBackgroundClip: hoveredFeature === feature.title ? 'text' : 'unset',
-                        WebkitTextFillColor: hoveredFeature === feature.title ? 'transparent' : 'inherit',
-                        color: hoveredFeature === feature.title ? 'transparent' : 'inherit'
-                      }}
-                    >
+                    {/* Title - Always Visible */}
+                    <h3 className={`text-lg font-bold mb-3 transition-colors duration-300 ${
+                      hoveredFeature === feature.title ? 'text-primary' : 'text-foreground'
+                    }`}>
                       {feature.title}
-                    </motion.h3>
+                    </h3>
 
                     {/* Description with better line height */}
                     <p className="text-sm text-muted-foreground leading-relaxed mb-6 min-h-[4rem]">
