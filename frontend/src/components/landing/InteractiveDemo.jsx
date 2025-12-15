@@ -524,37 +524,44 @@ const InteractiveDemo = () => {
             transition={{ delay: 0.5 }}
             className="space-y-4"
           >
-            {/* Flow Visualization */}
-            <Card className="p-6 border-accent/30">
-              <div className="flex items-center gap-2 mb-4">
+            {/* Flow Canvas Visualization */}
+            <Card className="p-4 border-accent/30 overflow-hidden">
+              <div className="flex items-center gap-2 mb-3">
                 <Activity className="w-5 h-5 text-accent" />
-                <h3 className="font-semibold">Execution Flow</h3>
+                <h3 className="font-semibold">Execution Flow Canvas</h3>
+                <Badge className="ml-auto bg-accent/10 text-accent border-accent/20 text-xs">
+                  Live
+                </Badge>
               </div>
-              <div className="space-y-2">
-                {demoSteps[currentStep]?.flowPath?.map((file, i) => (
-                  <motion.div
-                    key={i}
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: i * 0.1 }}
-                    className="flex items-center gap-2"
-                  >
-                    <div className={`w-8 h-8 rounded-lg flex items-center justify-center text-xs font-bold ${
-                      i === demoSteps[currentStep]?.flowPath?.length - 1
-                        ? 'bg-primary/20 text-primary'
-                        : 'bg-muted text-muted-foreground'
-                    }`}>
-                      {i + 1}
-                    </div>
-                    <div className="flex-1">
-                      <div className="text-xs font-mono">{file.split('/').pop()}</div>
-                      <div className="text-xs text-muted-foreground">{file.includes('/') ? file.split('/')[0] + '/' : ''}</div>
-                    </div>
-                    {i < demoSteps[currentStep]?.flowPath?.length - 1 && (
-                      <ArrowRight className="w-4 h-4 text-muted-foreground" />
-                    )}
-                  </motion.div>
-                ))}
+              <div className="h-[400px] rounded-lg overflow-hidden border border-border bg-card/50">
+                <ReactFlow
+                  nodes={nodes}
+                  edges={edges}
+                  onNodesChange={onNodesChange}
+                  onEdgesChange={onEdgesChange}
+                  fitView
+                  attributionPosition="bottom-right"
+                  nodesDraggable={false}
+                  nodesConnectable={false}
+                  elementsSelectable={false}
+                  panOnDrag={false}
+                  zoomOnScroll={false}
+                  preventScrolling={false}
+                >
+                  <Background 
+                    color="hsl(var(--border))" 
+                    gap={16} 
+                    size={1}
+                    style={{ opacity: 0.3 }}
+                  />
+                </ReactFlow>
+              </div>
+              <div className="mt-3 text-xs text-muted-foreground text-center">
+                {currentStep === 0 && "API request enters through main.py"}
+                {currentStep === 1 && "Request flows to routes.py handler"}
+                {currentStep === 2 && "Routes calls payment service"}
+                {currentStep === 3 && "Validator detects type mismatch!"}
+                {currentStep === 4 && "AI fixed the bug across files ✓"}
               </div>
             </Card>
 
