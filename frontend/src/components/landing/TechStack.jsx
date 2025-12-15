@@ -8,39 +8,6 @@ import { Code2, Zap, Package, Sparkles } from 'lucide-react';
 const TechStack = () => {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
 
-  const categories = [
-    {
-      title: 'Web Frameworks',
-      icon: '🌐',
-      items: ['Django', 'Flask', 'FastAPI', 'Pyramid', 'Tornado', 'Bottle', 'Sanic', 'Starlette', 'Quart']
-    },
-    {
-      title: 'Data Science & ML',
-      icon: '📊',
-      items: ['NumPy', 'Pandas', 'Scikit-learn', 'TensorFlow', 'PyTorch', 'Keras', 'Matplotlib', 'Seaborn']
-    },
-    {
-      title: 'Testing & QA',
-      icon: '🧪',
-      items: ['pytest', 'unittest', 'nose2', 'tox', 'coverage.py', 'hypothesis', 'mock']
-    },
-    {
-      title: 'Async & Concurrency',
-      icon: '⚡',
-      items: ['asyncio', 'aiohttp', 'Celery', 'multiprocessing', 'threading', 'concurrent.futures']
-    },
-    {
-      title: 'Data & APIs',
-      icon: '🔌',
-      items: ['Scrapy', 'Beautiful Soup', 'Requests', 'SQLAlchemy', 'Pydantic', 'marshmallow']
-    },
-    {
-      title: 'Dev Tools',
-      icon: '🛠️',
-      items: ['Jupyter', 'IPython', 'Streamlit', 'Dash', 'Gradio', 'Black', 'mypy']
-    }
-  ];
-
   const comingSoon = [
     { name: 'JavaScript', icon: '🟨', desc: 'Node.js & Browser' },
     { name: 'TypeScript', icon: '🔷', desc: 'Full type support' },
