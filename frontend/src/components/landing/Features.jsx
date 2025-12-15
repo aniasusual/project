@@ -10,7 +10,7 @@ import {
   Timer, TrendingUp, Shield, Network, Cpu, Activity,
   Play, Video, History, Wand2, MessageSquare, GitCompare,
   Layers, Database, Clock, BarChart3, Lightbulb, Mic,
-  Film, FileCode2, Workflow, ArrowRight
+  Film, FileCode2, Workflow, ArrowRight, Boxes
 } from 'lucide-react';
 
 const Features = () => {
