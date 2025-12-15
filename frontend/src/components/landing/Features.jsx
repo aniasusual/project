@@ -20,50 +20,50 @@ const Features = () => {
 
   const categories = {
     core: {
-      name: 'Core Debugging',
+      name: 'Multi-File Debugging',
       icon: <Code className="w-5 h-5" />,
       color: 'primary',
       features: [
         {
-          icon: <Eye className="w-6 h-6" />,
-          title: "Visual Execution Flow",
-          description: "Watch your Python code execute in real-time with beautiful flow diagrams. See function calls, loops, and recursion visualized.",
-          demo: "function → if/else → return",
+          icon: <Network className="w-6 h-6" />,
+          title: "Cross-File Execution Flow",
+          description: "Trace code execution across your entire project. Visualize how functions in different modules call each other in real-time.",
+          demo: "main.py → routes.py → services.py",
           badge: "Core"
         },
         {
           icon: <GitBranch className="w-6 h-6" />,
-          title: "Smart Breakpoints",
-          description: "Set conditional breakpoints using natural language. 'Stop when user_count > 100' or 'Break if error occurs'.",
-          demo: "Natural language → Breakpoint",
+          title: "Multi-File Breakpoints",
+          description: "Set breakpoints across multiple files simultaneously. Track execution flow through imports, packages, and modules.",
+          demo: "Break in any file in call chain",
           badge: "Core"
         },
         {
-          icon: <Activity className="w-6 h-6" />,
-          title: "Live Variable Tracking",
-          description: "Monitor all variables in real-time. See values change as your code executes with type and memory info.",
-          demo: "x = 10 → x = 20 → tracked",
+          icon: <Workflow className="w-6 h-6" />,
+          title: "Import Chain Visualization",
+          description: "See your entire import dependency graph. Understand which modules depend on what, detect circular imports instantly.",
+          demo: "app → models → utils → app ⚠️",
           badge: "Core"
         },
         {
           icon: <History className="w-6 h-6" />,
-          title: "Time-Travel Debugging",
-          description: "Step backward through execution history. Replay any moment in your code's execution timeline.",
-          demo: "←  Step back in time",
+          title: "Cross-File Time-Travel",
+          description: "Step backward through execution across files. Replay any moment in your multi-module execution timeline.",
+          demo: "←  Back through 5 files",
           badge: "Pro"
         },
         {
           icon: <Layers className="w-6 h-6" />,
-          title: "Stack Frame Inspector",
-          description: "Navigate through call stacks effortlessly. Jump to any frame, inspect locals, and understand context.",
-          demo: "main() → process() → validate()",
+          title: "Full Project Stack Trace",
+          description: "Navigate call stacks spanning multiple files. Jump between frames across your entire project structure.",
+          demo: "app.py:10 → db.py:45 → models.py:23",
           badge: "Core"
         },
         {
-          icon: <FileCode2 className="w-6 h-6" />,
-          title: "Expression Evaluator",
-          description: "Evaluate any Python expression during debugging. Test hypotheses without modifying code.",
-          demo: "eval: sum([1,2,3]) → 6",
+          icon: <FileSearch className="w-6 h-6" />,
+          title: "Jump to Definition Anywhere",
+          description: "Click any function/variable to jump to its definition across files. Works with imports, classes, methods.",
+          demo: "process_payment() → services/payment.py:15",
           badge: "Core"
         }
       ]
