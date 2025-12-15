@@ -426,11 +426,6 @@ const Features = () => {
                       </code>
                     </div>
                   </CardContent>
-
-                  {/* Card number indicator */}
-                  <div className="absolute top-4 right-4 w-8 h-8 rounded-full bg-muted/30 flex items-center justify-center text-xs font-bold text-muted-foreground group-hover:bg-primary/20 group-hover:text-primary transition-all duration-300">
-                    {index + 1}
-                  </div>
                 </Card>
               </motion.div>
             ))}
