@@ -1,6 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import ReactFlow, { 
+  Background, 
+  Controls, 
+  MarkerType,
+  useNodesState,
+  useEdgesState 
+} from 'reactflow';
+import 'reactflow/dist/style.css';
 import { Card } from '../ui/card';
 import { Badge } from '../ui/badge';
 import { Button } from '../ui/button';
