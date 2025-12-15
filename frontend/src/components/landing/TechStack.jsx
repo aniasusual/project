@@ -78,7 +78,7 @@ const TechStack = () => {
 
         {/* Frameworks */}
         <div>
-          <h3 className="text-2xl font-bold mb-8 text-center">Frameworks & Libraries</h3>
+          <h3 className="text-2xl font-bold mb-8 text-center">Python Frameworks & Libraries</h3>
           <motion.div
             initial={{ opacity: 0 }}
             animate={inView ? { opacity: 1 } : {}}
