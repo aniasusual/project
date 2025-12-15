@@ -18,8 +18,8 @@ const LandingPage = () => {
     <div className="min-h-screen bg-background overflow-hidden">
       <Navbar />
       <Hero />
-      <Features />
       <InteractiveDemo />
+      <Features />
       <UseCases />
       <TechStack />
       <Comparison />
