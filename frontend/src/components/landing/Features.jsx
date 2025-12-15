@@ -312,34 +312,34 @@ const Features = () => {
           </p>
         </motion.div>
 
-        {/* Category Tabs */}
+        {/* Category Tabs - Fixed Visibility */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ delay: 0.3 }}
-          className="mb-12"
+          className="mb-16"
         >
-          <div className="flex flex-wrap justify-center gap-3">
+          <div className="flex flex-wrap justify-center gap-4">
             {Object.entries(categories).map(([key, category]) => (
               <Button
                 key={key}
                 onClick={() => setActiveCategory(key)}
-                variant={activeCategory === key ? 'default' : 'outline'}
-                className={`group ${
+                size="lg"
+                className={`relative px-8 py-6 text-base font-semibold transition-all duration-300 ${
                   activeCategory === key
-                    ? 'bg-primary text-primary-foreground glow-primary'
-                    : 'border-border hover:border-primary/50'
+                    ? 'bg-primary text-primary-foreground shadow-lg shadow-primary/30 scale-105'
+                    : 'bg-card text-foreground border-2 border-border hover:border-primary hover:bg-primary/5'
                 }`}
               >
-                <span className={activeCategory === key ? 'text-primary-foreground' : ''}>
+                <span className="relative z-10 flex items-center gap-2">
                   {category.icon}
+                  <span>{category.name}</span>
                 </span>
-                <span className="ml-2">{category.name}</span>
                 {activeCategory === key && (
                   <motion.div
                     layoutId="activeTab"
-                    className="absolute inset-0 bg-primary rounded-lg -z-10"
-                    transition={{ type: 'spring', duration: 0.5 }}
+                    className="absolute inset-0 bg-primary rounded-lg"
+                    transition={{ type: 'spring', stiffness: 300, damping: 30 }}
                   />
                 )}
               </Button>
