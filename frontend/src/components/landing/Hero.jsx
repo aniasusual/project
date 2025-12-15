@@ -120,7 +120,7 @@ const Hero = () => {
               transition={{ delay: 0.4 }}
               className="text-xl text-muted-foreground leading-relaxed mb-8 max-w-2xl"
             >
-              Transform your VS Code into an AI-powered debugging powerhouse. Visualize code execution, track variables in real-time, and fix bugs 10x faster with intelligent insights.
+              Transform your VS Code into an AI-powered Python debugging powerhouse. Visualize code execution, track variables in real-time, and fix bugs 10x faster with intelligent insights.
             </motion.p>
 
             <motion.div
