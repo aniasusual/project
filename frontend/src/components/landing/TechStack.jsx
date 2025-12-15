@@ -7,25 +7,21 @@ import { Code2 } from 'lucide-react';
 const TechStack = () => {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
 
-  const languages = [
-    { name: 'JavaScript', logo: '🟨', support: 'Full' },
-    { name: 'TypeScript', logo: '🔷', support: 'Full' },
-    { name: 'Python', logo: '🐍', support: 'Full' },
-    { name: 'Java', logo: '☕', support: 'Full' },
-    { name: 'C/C++', logo: '⚙️', support: 'Full' },
-    { name: 'Go', logo: '🐹', support: 'Full' },
-    { name: 'Rust', logo: '🦀', support: 'Full' },
-    { name: 'PHP', logo: '🐘', support: 'Full' },
-    { name: 'Ruby', logo: '💎', support: 'Full' },
-    { name: 'C#', logo: '💠', support: 'Full' },
-    { name: 'Swift', logo: '🕊️', support: 'Full' },
-    { name: 'Kotlin', logo: '🎯', support: 'Full' }
+  const pythonVersions = [
+    { name: 'Python 3.12', logo: '🐍', support: 'Full', badge: 'Latest' },
+    { name: 'Python 3.11', logo: '🐍', support: 'Full', badge: 'Stable' },
+    { name: 'Python 3.10', logo: '🐍', support: 'Full', badge: 'LTS' },
+    { name: 'Python 3.9', logo: '🐍', support: 'Full', badge: 'Supported' },
+    { name: 'Python 3.8', logo: '🐍', support: 'Full', badge: 'Legacy' },
+    { name: 'Python 3.7', logo: '🐍', support: 'Limited', badge: 'Legacy' }
   ];
 
   const frameworks = [
-    'React', 'Vue', 'Angular', 'Svelte', 'Next.js', 'Nuxt',
-    'Express', 'FastAPI', 'Django', 'Spring Boot', 'Laravel',
-    'Node.js', 'Deno', 'Flutter', 'React Native'
+    'Django', 'Flask', 'FastAPI', 'Pyramid', 'Tornado',
+    'Bottle', 'CherryPy', 'Sanic', 'Quart', 'Starlette',
+    'Streamlit', 'Dash', 'Gradio', 'Scrapy', 'Celery',
+    'NumPy', 'Pandas', 'Scikit-learn', 'TensorFlow', 'PyTorch',
+    'Jupyter', 'pytest', 'unittest', 'asyncio'
   ];
 
   return (
