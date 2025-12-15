@@ -384,40 +384,19 @@ const Features = () => {
                   
                   <CardContent className="p-6 relative z-10">
                     {/* Icon & Badge Row */}
-                    <div className="flex items-start justify-between mb-6">
+                    <div className="flex items-start justify-between mb-4">
                       <motion.div
                         animate={{
-                          scale: hoveredFeature === feature.title ? 1.15 : 1,
-                          rotate: hoveredFeature === feature.title ? [0, -5, 5, 0] : 0
+                          scale: hoveredFeature === feature.title ? 1.1 : 1
                         }}
-                        transition={{ 
-                          rotate: { duration: 0.5 },
-                          scale: { duration: 0.3 }
-                        }}
-                        className="relative"
+                        transition={{ duration: 0.3 }}
+                        className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-300"
                       >
-                        <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center group-hover:from-primary/30 group-hover:to-primary/10 transition-all duration-500 group-hover:shadow-lg group-hover:shadow-primary/30">
-                          <div className="text-primary group-hover:scale-110 transition-transform duration-300">{feature.icon}</div>
-                        </div>
-                        {/* Pulse ring on hover */}
-                        {hoveredFeature === feature.title && (
-                          <motion.div
-                            className="absolute inset-0 rounded-2xl border-2 border-primary"
-                            initial={{ scale: 1, opacity: 0.5 }}
-                            animate={{ scale: 1.3, opacity: 0 }}
-                            transition={{ duration: 1, repeat: Infinity }}
-                          />
-                        )}
+                        <div className="text-primary">{feature.icon}</div>
                       </motion.div>
-                      <motion.div
-                        initial={{ x: 20, opacity: 0 }}
-                        animate={{ x: 0, opacity: 1 }}
-                        transition={{ delay: index * 0.08 + 0.2 }}
-                      >
-                        <Badge className={`${getBadgeColor(feature.badge)} text-xs px-3 py-1 font-semibold`}>
-                          {feature.badge}
-                        </Badge>
-                      </motion.div>
+                      <Badge className={`${getBadgeColor(feature.badge)} text-xs px-3 py-1.5 font-semibold`}>
+                        {feature.badge}
+                      </Badge>
                     </div>
 
                     {/* Title - Always Visible */}
