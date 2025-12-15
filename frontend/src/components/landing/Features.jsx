@@ -367,33 +367,22 @@ const Features = () => {
                 onMouseLeave={() => setHoveredFeature(null)}
                 className="group"
               >
-                <Card className="h-full border-2 border-border hover:border-primary transition-all duration-500 hover:shadow-2xl hover:shadow-primary/20 relative overflow-hidden bg-gradient-to-br from-card to-card/50">
-                  {/* Animated Background Glow */}
+                <Card className="h-full border border-border hover:border-primary/50 transition-all duration-300 hover:shadow-xl hover:shadow-primary/10 relative overflow-hidden bg-card">
+                  {/* Subtle Background Glow on Hover */}
                   <motion.div
-                    className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                    className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
                     style={{
                       background: `radial-gradient(circle at 50% 0%, ${
-                        activeCategory === 'ai' ? 'hsl(var(--accent) / 0.15)' :
-                        activeCategory === 'performance' ? 'hsl(var(--warning) / 0.15)' :
-                        activeCategory === 'collaboration' ? 'hsl(var(--success) / 0.15)' :
-                        activeCategory === 'advanced' ? 'hsl(var(--destructive) / 0.15)' :
-                        'hsl(var(--primary) / 0.15)'
+                        activeCategory === 'ai' ? 'hsl(var(--accent) / 0.08)' :
+                        activeCategory === 'performance' ? 'hsl(var(--warning) / 0.08)' :
+                        activeCategory === 'collaboration' ? 'hsl(var(--success) / 0.08)' :
+                        activeCategory === 'advanced' ? 'hsl(var(--destructive) / 0.08)' :
+                        'hsl(var(--primary) / 0.08)'
                       }, transparent 70%)`
                     }}
                   />
-
-                  {/* Shine Effect on Hover */}
-                  <motion.div
-                    className="absolute inset-0 opacity-0 group-hover:opacity-100"
-                    animate={{
-                      background: hoveredFeature === feature.title
-                        ? 'linear-gradient(90deg, transparent, rgba(255,255,255,0.1) 50%, transparent)'
-                        : 'transparent'
-                    }}
-                    transition={{ duration: 0.6 }}
-                  />
                   
-                  <CardContent className="p-8 relative z-10">
+                  <CardContent className="p-6 relative z-10">
                     {/* Icon & Badge Row */}
                     <div className="flex items-start justify-between mb-6">
                       <motion.div
