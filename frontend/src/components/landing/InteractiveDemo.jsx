@@ -145,13 +145,167 @@ const InteractiveDemo = () => {
     }
   }, [isPlaying, currentStep]);
 
+  // Generate flow visualization nodes and edges
+  const generateFlowVisualization = useCallback((stepIndex) => {
+    const initialNodes = [
+      {
+        id: 'main',
+        type: 'input',
+        position: { x: 250, y: 50 },
+        data: { label: 'main.py' },
+        style: {
+          background: stepIndex >= 0 ? 'hsl(var(--primary))' : 'hsl(var(--muted))',
+          color: stepIndex >= 0 ? 'hsl(var(--primary-foreground))' : 'hsl(var(--muted-foreground))',
+          border: stepIndex >= 0 ? '2px solid hsl(var(--primary))' : '1px solid hsl(var(--border))',
+          borderRadius: '12px',
+          padding: '12px 20px',
+          fontSize: '14px',
+          fontWeight: '600',
+        }
+      },
+      {
+        id: 'routes',
+        position: { x: 100, y: 180 },
+        data: { label: 'api/routes.py' },
+        style: {
+          background: stepIndex >= 1 ? 'hsl(var(--primary))' : 'hsl(var(--muted))',
+          color: stepIndex >= 1 ? 'hsl(var(--primary-foreground))' : 'hsl(var(--muted-foreground))',
+          border: stepIndex >= 1 ? '2px solid hsl(var(--primary))' : '1px solid hsl(var(--border))',
+          borderRadius: '10px',
+          padding: '10px 18px',
+          fontSize: '13px',
+        }
+      },
+      {
+        id: 'payment',
+        position: { x: 400, y: 180 },
+        data: { label: 'services/payment.py' },
+        style: {
+          background: stepIndex >= 2 ? 'hsl(var(--primary))' : 'hsl(var(--muted))',
+          color: stepIndex >= 2 ? 'hsl(var(--primary-foreground))' : 'hsl(var(--muted-foreground))',
+          border: stepIndex >= 2 ? '2px solid hsl(var(--primary))' : '1px solid hsl(var(--border))',
+          borderRadius: '10px',
+          padding: '10px 18px',
+          fontSize: '13px',
+        }
+      },
+      {
+        id: 'validator',
+        position: { x: 250, y: 310 },
+        data: { label: 'utils/validator.py' },
+        style: {
+          background: stepIndex >= 3 ? 'hsl(var(--destructive))' : 'hsl(var(--muted))',
+          color: stepIndex >= 3 ? 'hsl(var(--primary-foreground))' : 'hsl(var(--muted-foreground))',
+          border: stepIndex >= 3 ? '2px solid hsl(var(--destructive))' : '1px solid hsl(var(--border))',
+          borderRadius: '10px',
+          padding: '10px 18px',
+          fontSize: '13px',
+        }
+      },
+      {
+        id: 'bug',
+        type: 'output',
+        position: { x: 250, y: 440 },
+        data: { label: stepIndex >= 3 ? '⚠️ Type Error!' : '✓ Fixed!' },
+        style: {
+          background: stepIndex === 4 ? 'hsl(var(--success))' : stepIndex >= 3 ? 'hsl(var(--warning) / 0.2)' : 'hsl(var(--muted))',
+          color: stepIndex === 4 ? 'hsl(var(--primary-foreground))' : stepIndex >= 3 ? 'hsl(var(--warning))' : 'hsl(var(--muted-foreground))',
+          border: stepIndex === 4 ? '2px solid hsl(var(--success))' : stepIndex >= 3 ? '2px solid hsl(var(--warning))' : '1px solid hsl(var(--border))',
+          borderRadius: '12px',
+          padding: '12px 20px',
+          fontSize: '14px',
+          fontWeight: '600',
+        }
+      }
+    ];
+
+    const initialEdges = [
+      {
+        id: 'main-routes',
+        source: 'main',
+        target: 'routes',
+        type: 'smoothstep',
+        animated: stepIndex >= 1,
+        style: { 
+          stroke: stepIndex >= 1 ? 'hsl(var(--primary))' : 'hsl(var(--border))', 
+          strokeWidth: 2 
+        },
+        markerEnd: { 
+          type: MarkerType.ArrowClosed, 
+          color: stepIndex >= 1 ? 'hsl(var(--primary))' : 'hsl(var(--border))' 
+        },
+        label: stepIndex >= 1 ? 'app.run()' : '',
+        labelStyle: { fill: 'hsl(var(--primary))', fontSize: 12 }
+      },
+      {
+        id: 'routes-payment',
+        source: 'routes',
+        target: 'payment',
+        type: 'smoothstep',
+        animated: stepIndex >= 2,
+        style: { 
+          stroke: stepIndex >= 2 ? 'hsl(var(--primary))' : 'hsl(var(--border))', 
+          strokeWidth: 2 
+        },
+        markerEnd: { 
+          type: MarkerType.ArrowClosed, 
+          color: stepIndex >= 2 ? 'hsl(var(--primary))' : 'hsl(var(--border))' 
+        },
+        label: stepIndex >= 2 ? 'process_payment()' : '',
+        labelStyle: { fill: 'hsl(var(--primary))', fontSize: 12 }
+      },
+      {
+        id: 'payment-validator',
+        source: 'payment',
+        target: 'validator',
+        type: 'smoothstep',
+        animated: stepIndex >= 3,
+        style: { 
+          stroke: stepIndex >= 3 ? 'hsl(var(--primary))' : 'hsl(var(--border))', 
+          strokeWidth: 2 
+        },
+        markerEnd: { 
+          type: MarkerType.ArrowClosed, 
+          color: stepIndex >= 3 ? 'hsl(var(--primary))' : 'hsl(var(--border))' 
+        },
+        label: stepIndex >= 3 ? 'validate_amount()' : '',
+        labelStyle: { fill: 'hsl(var(--primary))', fontSize: 12 }
+      },
+      {
+        id: 'validator-bug',
+        source: 'validator',
+        target: 'bug',
+        type: 'smoothstep',
+        animated: stepIndex >= 3,
+        style: { 
+          stroke: stepIndex === 4 ? 'hsl(var(--success))' : stepIndex >= 3 ? 'hsl(var(--warning))' : 'hsl(var(--border))', 
+          strokeWidth: 2,
+          strokeDasharray: stepIndex < 4 ? '5,5' : undefined
+        },
+        markerEnd: { 
+          type: MarkerType.ArrowClosed, 
+          color: stepIndex === 4 ? 'hsl(var(--success))' : stepIndex >= 3 ? 'hsl(var(--warning))' : 'hsl(var(--border))' 
+        },
+        label: stepIndex === 4 ? '✓ Fixed' : stepIndex >= 3 ? 'str vs int' : '',
+        labelStyle: { 
+          fill: stepIndex === 4 ? 'hsl(var(--success))' : 'hsl(var(--warning))', 
+          fontSize: 12 
+        }
+      }
+    ];
+
+    setNodes(initialNodes);
+    setEdges(initialEdges);
+  }, [setNodes, setEdges]);
+
   useEffect(() => {
     const step = demoSteps[currentStep];
     setActiveFile(step.file);
     setCallStack(step.callStack);
     setVariables(step.variables);
     setAiInsight(step.insight);
-  }, [currentStep]);
+    generateFlowVisualization(currentStep);
+  }, [currentStep, generateFlowVisualization]);
 
   const handlePlay = () => {
     if (currentStep >= demoSteps.length - 1) {
