@@ -39,10 +39,10 @@ const TechStack = () => {
             Compatibility
           </Badge>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-            Works With <span className="text-gradient-primary">Your Stack</span>
+            Built For <span className="text-gradient-primary">Python</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Support for 50+ programming languages and all major frameworks. Debug any codebase, anywhere.
+            Complete Python ecosystem support. From web frameworks to data science libraries, debug any Python project.
           </p>
         </motion.div>
 
