@@ -48,71 +48,30 @@ const TechStack = () => {
           className="mb-20"
         >
           <Card className="max-w-4xl mx-auto border-primary/30 overflow-hidden">
-            <div className="bg-gradient-to-br from-primary/10 via-accent/5 to-primary/10 p-12 text-center">
+            <div className="bg-gradient-to-br from-primary/10 via-accent/5 to-primary/10 p-16 text-center">
               <motion.div
                 animate={{ scale: [1, 1.1, 1] }}
                 transition={{ duration: 2, repeat: Infinity }}
-                className="text-8xl mb-6"
+                className="text-9xl mb-8"
               >
                 🐍
               </motion.div>
-              <h3 className="text-3xl font-bold mb-3">Python</h3>
+              <h3 className="text-4xl font-bold mb-4">Python</h3>
               <div className="flex items-center justify-center gap-3 mb-6">
-                <Badge className="bg-success/10 text-success border-success/20 text-base px-4 py-2">
-                  <Zap className="w-4 h-4 mr-2" />
+                <Badge className="bg-success/10 text-success border-success/20 text-lg px-6 py-3">
+                  <Zap className="w-5 h-5 mr-2" />
                   Full Support
                 </Badge>
-                <Badge className="bg-primary/10 text-primary border-primary/20 text-base px-4 py-2">
+                <Badge className="bg-primary/10 text-primary border-primary/20 text-lg px-6 py-3">
                   All Versions
                 </Badge>
               </div>
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                Complete debugging support for Python 3.x. Works seamlessly with any Python version and framework.
+              <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+                Complete debugging support for Python 3.x. Works seamlessly with any Python version, framework, and library in the entire ecosystem.
               </p>
             </div>
           </Card>
         </motion.div>
-
-        {/* Framework Categories */}
-        <div className="mb-20">
-          <h3 className="text-2xl font-bold mb-8 text-center">Supported Frameworks & Libraries</h3>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {categories.map((category, index) => (
-              <motion.div
-                key={category.title}
-                initial={{ opacity: 0, y: 20 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ delay: index * 0.1 + 0.3 }}
-              >
-                <Card className="h-full border-border hover:border-primary/50 transition-all duration-300 hover:shadow-lg">
-                  <div className="p-6">
-                    <div className="flex items-center gap-3 mb-4">
-                      <div className="text-4xl">{category.icon}</div>
-                      <h4 className="text-lg font-bold">{category.title}</h4>
-                    </div>
-                    <div className="flex flex-wrap gap-2">
-                      {category.items.map((item, i) => (
-                        <motion.span
-                          key={item}
-                          initial={{ opacity: 0, scale: 0.8 }}
-                          animate={inView ? { opacity: 1, scale: 1 } : {}}
-                          transition={{ delay: index * 0.1 + i * 0.05 + 0.4 }}
-                        >
-                          <Badge
-                            variant="outline"
-                            className="px-3 py-1 border-border hover:border-primary hover:bg-primary/10 transition-all cursor-default"
-                          >
-                            {item}
-                          </Badge>
-                        </motion.span>
-                      ))}
-                    </div>
-                  </div>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
-        </div>
 
         {/* Coming Soon */}
         <motion.div
