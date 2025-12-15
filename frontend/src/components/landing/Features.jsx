@@ -347,7 +347,7 @@ const Features = () => {
           </div>
         </motion.div>
 
-        {/* Feature Cards */}
+        {/* Feature Cards - Enhanced Design */}
         <AnimatePresence mode="wait">
           <motion.div
             key={activeCategory}
@@ -355,82 +355,144 @@ const Features = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3 }}
-            className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
+            className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
           >
             {categories[activeCategory].features.map((feature, index) => (
               <motion.div
                 key={feature.title}
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: index * 0.1 }}
+                transition={{ delay: index * 0.08 }}
                 onMouseEnter={() => setHoveredFeature(feature.title)}
                 onMouseLeave={() => setHoveredFeature(null)}
+                className="group"
               >
-                <Card className="h-full border-border hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10 group relative overflow-hidden">
-                  {/* Gradient Overlay */}
+                <Card className="h-full border-2 border-border hover:border-primary transition-all duration-500 hover:shadow-2xl hover:shadow-primary/20 relative overflow-hidden bg-gradient-to-br from-card to-card/50">
+                  {/* Animated Background Glow */}
                   <motion.div
-                    className={`absolute inset-0 bg-gradient-to-br ${getCategoryColor(categories[activeCategory].color)} opacity-0 group-hover:opacity-10 transition-opacity duration-300`}
+                    className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                    style={{
+                      background: `radial-gradient(circle at 50% 0%, ${
+                        activeCategory === 'ai' ? 'hsl(var(--accent) / 0.15)' :
+                        activeCategory === 'performance' ? 'hsl(var(--warning) / 0.15)' :
+                        activeCategory === 'collaboration' ? 'hsl(var(--success) / 0.15)' :
+                        activeCategory === 'advanced' ? 'hsl(var(--destructive) / 0.15)' :
+                        'hsl(var(--primary) / 0.15)'
+                      }, transparent 70%)`
+                    }}
+                  />
+
+                  {/* Shine Effect on Hover */}
+                  <motion.div
+                    className="absolute inset-0 opacity-0 group-hover:opacity-100"
+                    animate={{
+                      background: hoveredFeature === feature.title
+                        ? 'linear-gradient(90deg, transparent, rgba(255,255,255,0.1) 50%, transparent)'
+                        : 'transparent'
+                    }}
+                    transition={{ duration: 0.6 }}
                   />
                   
-                  <CardContent className="p-6 relative">
-                    {/* Icon & Badge */}
-                    <div className="flex items-start justify-between mb-4">
+                  <CardContent className="p-8 relative z-10">
+                    {/* Icon & Badge Row */}
+                    <div className="flex items-start justify-between mb-6">
                       <motion.div
                         animate={{
-                          scale: hoveredFeature === feature.title ? 1.1 : 1,
-                          rotate: hoveredFeature === feature.title ? 5 : 0
+                          scale: hoveredFeature === feature.title ? 1.15 : 1,
+                          rotate: hoveredFeature === feature.title ? [0, -5, 5, 0] : 0
                         }}
-                        className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-all duration-300"
+                        transition={{ 
+                          rotate: { duration: 0.5 },
+                          scale: { duration: 0.3 }
+                        }}
+                        className="relative"
                       >
-                        <div className="text-primary">{feature.icon}</div>
+                        <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center group-hover:from-primary/30 group-hover:to-primary/10 transition-all duration-500 group-hover:shadow-lg group-hover:shadow-primary/30">
+                          <div className="text-primary group-hover:scale-110 transition-transform duration-300">{feature.icon}</div>
+                        </div>
+                        {/* Pulse ring on hover */}
+                        {hoveredFeature === feature.title && (
+                          <motion.div
+                            className="absolute inset-0 rounded-2xl border-2 border-primary"
+                            initial={{ scale: 1, opacity: 0.5 }}
+                            animate={{ scale: 1.3, opacity: 0 }}
+                            transition={{ duration: 1, repeat: Infinity }}
+                          />
+                        )}
                       </motion.div>
-                      <Badge className={getBadgeColor(feature.badge)}>
-                        {feature.badge}
-                      </Badge>
+                      <motion.div
+                        initial={{ x: 20, opacity: 0 }}
+                        animate={{ x: 0, opacity: 1 }}
+                        transition={{ delay: index * 0.08 + 0.2 }}
+                      >
+                        <Badge className={`${getBadgeColor(feature.badge)} text-xs px-3 py-1 font-semibold`}>
+                          {feature.badge}
+                        </Badge>
+                      </motion.div>
                     </div>
 
-                    {/* Title */}
-                    <h3 className="text-lg font-bold mb-2 group-hover:text-primary transition-colors">
+                    {/* Title with gradient on hover */}
+                    <motion.h3 
+                      className="text-xl font-bold mb-3 transition-all duration-300"
+                      animate={{
+                        backgroundImage: hoveredFeature === feature.title 
+                          ? 'linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)))'
+                          : 'none',
+                        WebkitBackgroundClip: hoveredFeature === feature.title ? 'text' : 'unset',
+                        WebkitTextFillColor: hoveredFeature === feature.title ? 'transparent' : 'inherit',
+                        color: hoveredFeature === feature.title ? 'transparent' : 'inherit'
+                      }}
+                    >
                       {feature.title}
-                    </h3>
+                    </motion.h3>
 
-                    {/* Description */}
-                    <p className="text-sm text-muted-foreground leading-relaxed mb-4">
+                    {/* Description with better line height */}
+                    <p className="text-sm text-muted-foreground leading-relaxed mb-6 min-h-[4rem]">
                       {feature.description}
                     </p>
 
-                    {/* Demo Preview */}
+                    {/* Demo Preview - Always visible but highlighted on hover */}
                     <motion.div
-                      initial={{ opacity: 0, height: 0 }}
                       animate={{
-                        opacity: hoveredFeature === feature.title ? 1 : 0,
-                        height: hoveredFeature === feature.title ? 'auto' : 0
+                        scale: hoveredFeature === feature.title ? 1.02 : 1,
+                        y: hoveredFeature === feature.title ? -2 : 0
                       }}
-                      className="overflow-hidden"
+                      className="relative"
                     >
-                      <div className="mt-4 pt-4 border-t border-border">
-                        <div className="text-xs text-muted-foreground mb-2 flex items-center gap-2">
-                          <Play className="w-3 h-3" />
-                          Quick Demo:
+                      <div className={`p-4 rounded-xl border transition-all duration-300 ${
+                        hoveredFeature === feature.title 
+                          ? 'bg-primary/10 border-primary/30 shadow-lg shadow-primary/10' 
+                          : 'bg-muted/30 border-border'
+                      }`}>
+                        <div className="flex items-center gap-2 mb-2">
+                          <Play className="w-3 h-3 text-primary" />
+                          <span className="text-xs font-semibold text-primary">Try it:</span>
                         </div>
-                        <code className="text-xs bg-muted/50 px-3 py-2 rounded-lg block font-mono text-primary">
+                        <code className="text-xs font-mono text-foreground block overflow-x-auto">
                           {feature.demo}
                         </code>
                       </div>
                     </motion.div>
 
-                    {/* Hover Arrow */}
+                    {/* Read More Indicator */}
                     <motion.div
-                      initial={{ opacity: 0, x: -10 }}
-                      animate={{
+                      className="flex items-center gap-2 mt-4 text-xs font-semibold text-primary"
+                      initial={{ opacity: 0 }}
+                      animate={{ 
                         opacity: hoveredFeature === feature.title ? 1 : 0,
                         x: hoveredFeature === feature.title ? 0 : -10
                       }}
-                      className="absolute bottom-6 right-6"
+                      transition={{ duration: 0.3 }}
                     >
-                      <ArrowRight className="w-5 h-5 text-primary" />
+                      <span>Explore this feature</span>
+                      <ArrowRight className="w-4 h-4 animate-pulse" />
                     </motion.div>
                   </CardContent>
+
+                  {/* Card number indicator */}
+                  <div className="absolute top-4 right-4 w-8 h-8 rounded-full bg-muted/30 flex items-center justify-center text-xs font-bold text-muted-foreground group-hover:bg-primary/20 group-hover:text-primary transition-all duration-300">
+                    {index + 1}
+                  </div>
                 </Card>
               </motion.div>
             ))}
