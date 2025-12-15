@@ -347,7 +347,7 @@ const Features = () => {
           </div>
         </motion.div>
 
-        {/* Feature Cards - Enhanced Design */}
+        {/* Feature Cards - Fixed Design */}
         <AnimatePresence mode="wait">
           <motion.div
             key={activeCategory}
@@ -355,7 +355,7 @@ const Features = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3 }}
-            className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+            className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
           >
             {categories[activeCategory].features.map((feature, index) => (
               <motion.div
